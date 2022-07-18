@@ -77,17 +77,21 @@
     }
   },
   "lint-staged": {
-    "{src,config,build}/**/*.{js,jsx,vue}": [
-      "esw --ext '.vue,.js,.jsx' --fix",
-      "git add"
-    ],
-    "*.md": [
-      "esw --ext '.md' --fix",
-      "git add"
-    ],
-    "src/**/*.{css,scss,vue}": [
-      "stylelint --fix",
-      "git add"
-    ]
+	"*.{js,jsx}": [
+		"eslint --fix",
+		"prettier --write"
+	],
+	"*.vue": [
+		"eslint --fix",
+		"prettier --write",
+		"stylelint --fix"
+	],
+	"*.{css,scss,html}": [
+		"stylelint --fix",
+		"prettier --write"
+	],
+	"*.{md,json}": [
+		"prettier --write"
+	]
   }
 }

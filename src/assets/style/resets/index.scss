@@ -1,7 +1,7 @@
-/**
- * @file
- * reset.scss
- */
+// vc 组件库样式重置
+@import 'vc/index.scss';
+
+// ----------- 项目中全局样式重置 ------------
 
 body {
 	font-family: "Microsoft YaHei", "微软雅黑", "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", Arial, sans-serif;
@@ -12,3 +12,4 @@ body {
 	color: #333;
 	background-color: #f2f2f2 !important;
 }
+

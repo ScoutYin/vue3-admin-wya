@@ -1,4 +1,4 @@
-import './assets/css/global.scss';
+import './assets/style/index.scss';
 import "@wya/vc/lib/vc.min.css";
 
 import { createApp } from 'vue';

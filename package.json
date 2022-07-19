@@ -46,14 +46,14 @@
 		"cp-cli": "^2.0.0",
 		"cross-env": "^6.0.3",
 		"cssnano": "^4.1.10",
-		"eslint": "^7.23.0",
+		"eslint": "^8.20.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-babel": "^5.3.1",
 		"eslint-plugin-import": "^2.22.1",
 		"eslint-plugin-markdown": "^2.0.0",
 		"eslint-plugin-prettier": "^4.2.1",
-		"eslint-plugin-vue": "^7.8.0",
+		"eslint-plugin-vue": "^9.2.0",
 		"eslint-watch": "^7.0.0",
 		"fs-extra": "^9.1.0",
 		"husky": "^8.0.0",
@@ -72,7 +72,7 @@
 		"stylelint-config-standard": "^21.0.0",
 		"stylelint-order": "^4.1.0",
 		"vite": "^2.4.4",
-		"vue-eslint-parser": "^7.6.0"
+		"vue-eslint-parser": "^9.0.3"
 	},
 	"husky": {
 		"hooks": {

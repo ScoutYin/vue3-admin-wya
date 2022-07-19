@@ -1,5 +1,5 @@
 import './assets/style/index.scss';
-import "@wya/vc/lib/vc.min.css";
+import '@wya/vc/lib/vc.min.css';
 
 import { createApp } from 'vue';
 import * as WYA_VC from '@wya/vc';
@@ -14,7 +14,7 @@ const options = {
 	Global,
 	Network,
 	Router,
-	Routes
+	Routes,
 };
 
 // 全局信息

@@ -3,18 +3,28 @@ module.exports = {
 	plugins: ['stylelint-order'],
 	extends: ['stylelint-config-standard'],
 	rules: {
-		"indentation": "tab",
+		indentation: 'tab',
 		'selector-pseudo-class-no-unknown': [
 			true,
 			{
 				ignorePseudoClasses: ['global'],
-			}
+			},
 		],
 		'at-rule-no-unknown': [
 			true,
 			{
-				ignoreAtRules: ['function', 'if', 'each', 'include', 'mixin', 'at-root', 'else', 'extend', 'return'],
-			}
+				ignoreAtRules: [
+					'function',
+					'if',
+					'each',
+					'include',
+					'mixin',
+					'at-root',
+					'else',
+					'extend',
+					'return',
+				],
+			},
 		],
 		'no-empty-source': null,
 		'named-grid-areas-no-invalid': null,
@@ -28,7 +38,7 @@ module.exports = {
 			'always',
 			{
 				ignore: ['after-comment', 'first-nested'],
-			}
+			},
 		],
 		'unit-no-unknown': [true, { ignoreUnits: ['rpx'] }],
 		// Specify the alphabetical order of the attributes in the declaration block
@@ -178,7 +188,7 @@ module.exports = {
 			'page',
 			'set-link-source',
 			'unicode-bidi',
-			'speak'
+			'speak',
 		],
 	},
 	ignoreFiles: ['**/*.js', '**/*.jsx'],

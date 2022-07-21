@@ -1,9 +1,14 @@
 module.exports = {
 	root: true,
 	plugins: ['stylelint-order'],
-	extends: ['stylelint-config-standard'],
+	extends: [
+		'stylelint-config-standard-scss',
+		'stylelint-config-prettier',
+		'stylelint-config-standard-vue/scss',
+	],
 	rules: {
 		indentation: 'tab',
+		'selector-class-pattern': null,
 		'selector-pseudo-class-no-unknown': [
 			true,
 			{
@@ -192,4 +197,10 @@ module.exports = {
 		],
 	},
 	ignoreFiles: ['**/*.js', '**/*.jsx'],
+	// overrides: [
+	// 	{
+	// 		files: ['*.vue', '**/*.vue'],
+	// 		extends: [],
+	// 	},
+	// ],
 };

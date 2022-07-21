@@ -15,9 +15,6 @@ node_modules
 *.launch
 .settings/
 
-# IDE - VSCode
-.vscode/*
-
 # misc
 .sass-cache
 connect.lock

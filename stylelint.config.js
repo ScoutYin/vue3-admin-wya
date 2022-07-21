@@ -3,8 +3,8 @@ module.exports = {
 	plugins: ['stylelint-order'],
 	extends: [
 		'stylelint-config-standard-scss',
-		'stylelint-config-prettier',
 		'stylelint-config-standard-vue/scss',
+		'stylelint-config-prettier',
 	],
 	rules: {
 		indentation: 'tab',
@@ -197,10 +197,4 @@ module.exports = {
 		],
 	},
 	ignoreFiles: ['**/*.js', '**/*.jsx'],
-	// overrides: [
-	// 	{
-	// 		files: ['*.vue', '**/*.vue'],
-	// 		extends: [],
-	// 	},
-	// ],
 };

@@ -16,7 +16,7 @@
 				<router-view
 					:style="{
 						minWidth: `${minWidth}px`,
-						overflowX: 'auto'
+						overflowX: 'auto',
 					}"
 				/>
 			</div>
@@ -39,7 +39,7 @@ export default {
 		let paddingLeft = ref(0);
 		let minHeight = ref('');
 		let minWidth = ref(1024);
-		
+
 		// methods
 		const setContentPaddingTop = ({ distance }) => {
 			paddingTop.value = distance ? `${distance}px` : 0;
@@ -72,22 +72,23 @@ export default {
 			minHeight,
 			minWidth,
 		};
-	}
-	
+	},
 };
 </script>
 
 <style lang="scss">
-.c-layout{
+.c-layout {
 	position: relative;
 	overflow: hidden;
+
 	._content {
 		padding-left: 232px;
 	}
+
 	.v-router {
-		overflow-x: auto;
 		margin: 12px 12px 0 16px;
-		background-color: #ffffff;
+		overflow-x: auto;
+		background-color: #fff;
 	}
 }
 </style>

@@ -48,6 +48,7 @@ module.exports = {
 		],
 		'vue/require-default-prop': 0, // 可以不提供组件 prop 的默认值
 		'vue/component-definition-name-casing': 0,
+		'vue/multi-word-component-names': 'off',
 		camelcase: 0,
 		'dot-notation': 0,
 		'new-parens': ['warn'],

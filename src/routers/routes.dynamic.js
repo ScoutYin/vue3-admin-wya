@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { VcInstance } from '@wya/vc';
 
-import navManage from '@components/layout/nav-manage';
-import Layout from '@components/layout/layout.vue';
-import Left from '@components/layout/left.vue';
-import Top from '@components/layout/top.vue';
+import navManage from '@layouts/nav-manage';
+import Layout from '@layouts/layout.vue';
+import Left from '@layouts/left.vue';
+import Top from '@layouts/top.vue';
 import { Global } from '@globals/index';
 import { basicRoutes, layoutRoutes, dynamicRoutes } from './routes.js';
 import { stringifyQuery } from './utils';
@@ -20,7 +20,7 @@ class RoutesManager {
 			history: this.history,
 			routes: [],
 			// 源码在这里会对query中特殊字符进行兑换，像空格 -> '+'
-			stringifyQuery
+			stringifyQuery,
 		});
 
 		this.clearRoutes = [];
@@ -38,7 +38,7 @@ class RoutesManager {
 		this.navRoutes = navManage.navTreeData.value;
 
 		// 重新获得有权限的路由
-		this.clearRoutes.forEach(fn => fn());
+		this.clearRoutes.forEach((fn) => fn());
 
 		const children = Global.isLoggedIn()
 			? this.generateRoutes([...this.layoutRoutes, ...this.dynamicRoutes])
@@ -48,22 +48,24 @@ class RoutesManager {
 			path: '/',
 			component: Layout,
 			redirect: children[0]?.path || '/other/not-found',
-			children
+			children,
 		};
 
-		this.clearRoutes = [rootRoute, ...this.basicRoutes].map(route => this.router.addRoute(route));
+		this.clearRoutes = [rootRoute, ...this.basicRoutes].map((route) =>
+			this.router.addRoute(route)
+		);
 	}
 
 	/**
 	 * 生成所有路由
 	 * @param {*} routeRecords
 	 */
-	 generateRoutes(routeRecords) {
+	generateRoutes(routeRecords) {
 		const navRoutes = this.generateNavRoutes();
 		// 筛选出有权限的路由, 这里用的同一个方法
 		const routes = routeRecords.filter((route) => Global.hasAuth(route.auth));
 
-		routes.forEach(route => {
+		routes.forEach((route) => {
 			if (!route.meta) {
 				route.meta = {};
 			}
@@ -85,9 +87,9 @@ class RoutesManager {
 					...route,
 					meta: {
 						...(route.meta || {}),
-						title: route.title
+						title: route.title,
 					},
-					redirect: this.getNavRouteRedirect(route)
+					redirect: this.getNavRouteRedirect(route),
 				});
 				if (route.children) {
 					flatten(route.children);
@@ -111,18 +113,18 @@ class RoutesManager {
 		return !route.components || route.redirect
 			? route
 			: {
-				...route,
-				meta: {
-					title: route.title,
-					...route.meta,
-				},
-				components: (() => {
-					const comps = { default: route.components[0] };
-					if (route.components.includes('left')) comps.left = Left;
-					if (route.components.includes('top')) comps.top = Top;
-					return comps;
-				})()
-			};
+					...route,
+					meta: {
+						title: route.title,
+						...route.meta,
+					},
+					components: (() => {
+						const comps = { default: route.components[0] };
+						if (route.components.includes('left')) comps.left = Left;
+						if (route.components.includes('top')) comps.top = Top;
+						return comps;
+					})(),
+			  };
 	}
 }
 export default RoutesManager;

@@ -1,6 +1,4 @@
-import fs from 'fs-extra';
-import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig } from 'vite';
 
 import { resolvePackage, isDev } from './build/utils';
 import { createAlias, createPlugins } from './build/vite';
@@ -27,9 +25,10 @@ export default (options) => {
 				'@modules': './src/modules',
 				'@utils': './src/utils',
 				'@hooks': './src/hooks',
+				'@layouts': './src/layouts',
 				// 统一vue
-				'^vue$': resolvePackage('vue/index.js')
-			})
+				'^vue$': resolvePackage('vue/index.js'),
+			}),
 		},
 
 		plugins: createPlugins(options),
@@ -40,19 +39,19 @@ export default (options) => {
 		css: {
 			preprocessorOptions: {
 				scss: {
-					additionalData: resolvePackage("@wya/sass/lib/mixins/bem.scss", { read: true }),
-				}
-			}
+					additionalData: resolvePackage('@wya/sass/lib/mixins/bem.scss', { read: true }),
+				},
+			},
 		},
 
 		build: {
 			outDir: 'dist',
-			assetsDir: `static.${TIMESTAMP}`
+			assetsDir: `static.${TIMESTAMP}`,
 		},
 
 		define: {
 			'process.env.BRANCH': process.env.BRANCH || '"develop"',
-			__DEV__: ENV_IS_DEV
-		}
+			__DEV__: ENV_IS_DEV,
+		},
 	});
 };

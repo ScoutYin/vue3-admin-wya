@@ -88,7 +88,15 @@ module.exports = {
 		'prefer-rest-params': 0,
 		'class-methods-use-this': 0,
 		// tab缩进
-		indent: ['warn', 'tab', { SwitchCase: 1 }],
+		indent: [
+			'warn',
+			'tab',
+			{
+				SwitchCase: 1,
+				offsetTernaryExpressions: true,
+				flatTernaryExpressions: true,
+			},
+		],
 		'no-tabs': 0,
 		quotes: 0,
 		'no-console': 0,

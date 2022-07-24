@@ -1,5 +1,5 @@
 <template>
-	<div :style="{left: `${leftMenuWidth}px`}" class="v-layout-top">
+	<div :style="{ left: `${leftMenuWidth}px` }" class="v-layout-top">
 		<div class="g-flex-ac g-jc-sb">
 			<div v-if="topMenus.length === 1" class="_name">
 				{{ topMenus[0].title }}
@@ -9,7 +9,11 @@
 					v-for="menu in topMenus"
 					:key="menu.path"
 					:to="menu.path"
-					:class="activeChain[2].path === menu.path ? '_menu-item-active' : '_menu-item-unactive'"
+					:class="
+						activeChain[2].path === menu.path
+							? '_menu-item-active'
+							: '_menu-item-unactive'
+					"
 					class="_menu-item"
 				>
 					{{ menu.title }}
@@ -55,40 +59,45 @@ onBeforeUnmount(() => {
 <style lang="scss">
 .v-layout-top {
 	position: fixed;
-	top: 0px;
+	top: 0;
 	right: 0;
 	z-index: 999;
-	background-color: var(--white);
-	padding: 0 15px;
-	border-bottom: 1px solid var(--cd9);
 	height: 56px;
+	padding: 0 15px;
+	background-color: var(--white);
+	border-bottom: 1px solid var(--cd9);
+
 	._name {
-		font-size:14px;
-		color: var(--black);
 		height: 56px;
-		line-height: 56px;
 		padding-left: 21px;
+		font-size: 14px;
+		line-height: 56px;
+		color: var(--black);
 	}
+
 	._menu-item {
 		height: 56px;
-		line-height: 56px;
-		font-size: 14px;
 		margin-right: 48px;
+		font-size: 14px;
+		line-height: 56px;
 		cursor: pointer;
 	}
+
 	._menu-item-unactive {
 		color: var(--black);
 		opacity: 0.8;
+
 		&:hover {
 			opacity: 1;
-			will-change: opacity;
 			transition: opacity 0.2s ease-in-out;
+			will-change: opacity;
 		}
 	}
+
 	._menu-item-active {
 		color: var(--main);
 		border-bottom: 2px solid var(--main);
-		box-sizing: border-box
+		box-sizing: border-box;
 	}
 }
 </style>

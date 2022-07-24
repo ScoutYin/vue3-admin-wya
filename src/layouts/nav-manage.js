@@ -1,6 +1,6 @@
 import { ref } from 'vue';
 import { Global } from '@globals/index';
-import { tplNavConfig } from "@modules/tpl/index";
+import { tplNavConfig } from '@modules/tpl/index';
 
 class NavManage {
 	constructor() {
@@ -34,7 +34,7 @@ class NavManage {
 				if (proxy) {
 					realModule = proxyCache[proxy];
 					if (!realModule) {
-						realModule = modules.find(module => module.path === proxy);
+						realModule = modules.find((module) => module.path === proxy);
 						// 更新查找缓存
 						proxyCache[proxy] = realModule;
 					}

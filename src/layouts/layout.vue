@@ -33,7 +33,7 @@ import { Global } from '@globals';
 
 export default {
 	name: 'tpl-layout',
-	setup(props, context) {
+	setup() {
 		// data
 		let paddingTop = ref(0);
 		let paddingLeft = ref(0);

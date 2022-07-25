@@ -1,10 +1,10 @@
-@import 'mixins/index.scss';
+@import 'mixins/index';
 
 // 变量
-@import 'var/index.scss';
+@import 'var/index';
 
 // 基础样式
-@import '@wya/sass/lib/core/basic/index.scss';
+@import '@wya/sass/lib/core/basic/index';
 
 // 样式重置
-@import "./resets/index.scss";
+@import './resets/index';

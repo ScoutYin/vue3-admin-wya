@@ -18,14 +18,7 @@ export default (options) => {
 
 		resolve: {
 			alias: createAlias({
-				'@assets': './src/assets',
-				'@globals': './src/globals',
-				'@components': './src/components',
-				'@constants': './src/constants',
-				'@modules': './src/modules',
-				'@utils': './src/utils',
-				'@hooks': './src/hooks',
-				'@layouts': './src/layouts',
+				'@': './src',
 				// 统一vue
 				'^vue$': resolvePackage('vue/index.js'),
 			}),

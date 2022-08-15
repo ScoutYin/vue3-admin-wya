@@ -1,0 +1,51 @@
+import { createRouter, createWebHistory } from 'vue-router';
+import { stringifyQuery } from './utils';
+import { basicRoutes, getDynamicRoutes } from './routes';
+import { setupRouterGuard } from './guard';
+
+export * from './guard';
+export * from './routes';
+
+const WHITE_NAME_LIST = [];
+
+const genWhiteList = (routes) => {
+	routes.forEach((route) => {
+		WHITE_NAME_LIST.push(route.name);
+		if (route.children) {
+			genWhiteList(route.children);
+		}
+	});
+};
+genWhiteList(basicRoutes);
+
+export const router = createRouter({
+	history: createWebHistory('/'),
+	routes: basicRoutes,
+	// 源码在这里会对query中特殊字符进行兑换，像空格 -> '+'
+	stringifyQuery,
+});
+
+export const resetRouter = () => {
+	router.getRoutes().forEach((route) => {
+		const { name } = route;
+		if (name && !WHITE_NAME_LIST.includes(name) && router.hasRoute(name)) {
+			router.removeRoute(name);
+		}
+	});
+};
+
+export const addDynamicRoutes = () => {
+	const dynamicRoutes = getDynamicRoutes();
+	console.log(dynamicRoutes, 'dynamicRoutes');
+	dynamicRoutes.forEach((route) => {
+		!router.hasRoute(route.name) && router.addRoute(route);
+	});
+	console.log(router.currentRoute.path, router.getRoutes());
+};
+
+export const setupRouter = (app) => {
+	// TODO: 此时只是调试，实际应该在登录后获取到权限表再添加相应动态路由
+	addDynamicRoutes();
+	app.use(router);
+	setupRouterGuard(router);
+};

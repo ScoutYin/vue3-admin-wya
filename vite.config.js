@@ -1,9 +1,13 @@
 import { defineConfig } from 'vite';
-
+import { resolve } from 'path';
 import { resolvePackage, isDev } from './build/utils';
-import { createAlias, createPlugins } from './build/vite';
+import { createPlugins } from './build/vite';
 
 const TIMESTAMP = new Date().getTime();
+
+const pathResolve = (dir) => {
+	return resolve(process.cwd(), '.', dir);
+};
 
 export default (options) => {
 	const ENV_IS_DEV = isDev(options.mode);
@@ -17,11 +21,20 @@ export default (options) => {
 		publicDir: 'src/assets/static',
 
 		resolve: {
-			alias: createAlias({
-				'@': './src',
-				// 统一vue
-				'^vue$': resolvePackage('vue/index.js'),
-			}),
+			alias: [
+				{
+					find: /@\//,
+					replacement: pathResolve('src') + '/',
+				},
+				{
+					find: /@globals/,
+					replacement: pathResolve('src') + '/globals/',
+				},
+				{
+					find: /@assets/,
+					replacement: pathResolve('src') + '/assets/',
+				},
+			],
 		},
 
 		plugins: createPlugins(options),

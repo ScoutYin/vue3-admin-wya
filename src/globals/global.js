@@ -60,7 +60,7 @@ class GlobalManager extends EventStore {
 
 	/**
 	 * 判断是否已经登录
-	 * 
+	 *
 	 * @returns {boolean} ~
 	 */
 	isLoggedIn() {

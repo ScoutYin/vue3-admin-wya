@@ -1,12 +1,26 @@
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import { useRoute } from 'vue-router';
-import navManage from '../nav-manage';
+import { parseRouteTrees, dynamicRouteTrees } from '@/router';
 import { getParentRoutePath } from '../utils';
 
 export const useMenus = () => {
 	const route = useRoute();
+	let menusRef = [];
+	let flattedRoutes = [];
 
-	const findChunk = (path) => navManage.navTreeFlatted.value.find((it) => it.path === path);
+	const genMenus = () => {
+		const result = parseRouteTrees(dynamicRouteTrees);
+
+		menusRef = result.menuTrees;
+		flattedRoutes = result.flattedRoutes;
+	};
+	genMenus();
+
+	const visibleMenus = computed(() => {
+		return menusRef.filter((it) => !it.proxy);
+	});
+
+	const findChunk = (path) => flattedRoutes.find((it) => it.path === path);
 
 	const activeChain = computed(() => {
 		const stack = [];
@@ -38,7 +52,23 @@ export const useMenus = () => {
 		return stack;
 	});
 
+	// 真实模块归属关系上的一级导航模块
+	const realOneLevelChunk = computed(() => {
+		return activeChain.value[1]?.shadowParent || activeChain.value[1]?.parent;
+	});
+
+	// 可见的二级导航菜单
+	const visibleChildMenus = computed(() => {
+		const childMenus = realOneLevelChunk.value?.children || [];
+		return childMenus.filter((menu) => {
+			return typeof menu.hide === 'function' ? !menu.hide() : !menu.hide;
+		});
+	});
+
 	return {
 		activeChain,
+		visibleMenus,
+		realOneLevelChunk,
+		visibleChildMenus,
 	};
 };

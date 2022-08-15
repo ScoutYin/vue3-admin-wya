@@ -27,6 +27,7 @@ onBeforeRouteUpdate(() => {
 
 <style lang="scss">
 .c-layout {
+	height: 100vh;
 	overflow: hidden;
 }
 </style>

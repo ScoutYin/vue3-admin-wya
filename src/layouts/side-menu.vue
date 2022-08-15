@@ -26,14 +26,14 @@
 			>
 				<div class="_item-icon">
 					<vc-icon :type="chunk.icon" :inherit="chunk.inherit" class="g-m-r-5" />
-					<span>{{ chunk.title }}</span>
+					<span>{{ chunk.meta.title }}</span>
 				</div>
 			</router-link>
 		</div>
 
 		<div v-if="showChildMenus" class="_two-level">
 			<div class="__name">
-				{{ realOneLevelChunk.title }}
+				{{ realOneLevelChunk.meta.title }}
 			</div>
 			<div style="padding: 12px">
 				<router-link
@@ -43,7 +43,7 @@
 					:class="activeChain[1].path === menu.path ? '__menu-item-active' : '__menu-item-unactive'"
 					class="__menu-item g-relative"
 				>
-					{{ menu.title }}
+					{{ menu.meta.title }}
 				</router-link>
 			</div>
 		</div>
@@ -104,11 +104,6 @@ onUnmounted(() => {
 
 <style lang="scss">
 .v-layout-side-menu {
-	position: fixed;
-	top: 0;
-	left: 0;
-	z-index: 4;
-	height: 100vh;
 	user-select: none;
 
 	._logo {

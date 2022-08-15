@@ -1,7 +1,7 @@
 <template>
 	<div class="c-layout g-flex">
 		<RouterView name="sideMenu" />
-		<div class="g-flex">
+		<div class="g-flex g-fd-c g-col">
 			<RouterView name="topMenu" />
 			<RouterView name="breadcrumb" />
 			<div class="g-col">
@@ -15,9 +15,6 @@
 import { VcInstance } from '@wya/vc';
 import { Service } from '@wya/vcc';
 import { onBeforeRouteUpdate } from 'vue-router';
-
-// import SideMenu from './side-menu.vue';
-// import TopMenu from './top-menu.vue';
 
 onBeforeRouteUpdate(() => {
 	VcInstance.clear();

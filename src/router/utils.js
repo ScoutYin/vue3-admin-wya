@@ -1,3 +1,6 @@
+import SideMenu from '@/layouts/side-menu.vue';
+import TopMenu from '@/layouts/top-menu.vue';
+
 const HASH_RE = /#/g; // %23
 const AMPERSAND_RE = /&/g; // %26
 const SLASH_RE = /\//g; // %2F
@@ -89,8 +92,8 @@ const getRedirectPath = (routeRecord) => {
 	return routeRecord.redirect || routeRecord.children?.[0]?.path;
 };
 
-const sideMenuImporter = () => import('../layouts/side-menu.vue');
-const topMenuImporter = () => import('../layouts/top-menu.vue');
+// const sideMenuImporter = () => import('../layouts/side-menu.vue');
+// const topMenuImporter = () => import('../layouts/top-menu.vue');
 
 export const normalizeRoute = (route) => {
 	if (!route.meta) {
@@ -104,10 +107,10 @@ export const normalizeRoute = (route) => {
 	if (route.components) {
 		const { sideMenu, topMenu } = route.components;
 		if (sideMenu) {
-			route.components.sideMenu = sideMenuImporter;
+			route.components.sideMenu = SideMenu;
 		}
 		if (topMenu) {
-			route.components.topMenu = topMenuImporter;
+			route.components.topMenu = TopMenu;
 		}
 	}
 };

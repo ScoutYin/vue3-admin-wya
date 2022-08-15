@@ -1,4 +1,5 @@
 // import { basicModuleGlobs } from './basic';
+import { basicModuleNames } from './basic';
 import { Global } from '@/globals';
 import { normalizeRoute } from '../utils';
 
@@ -9,7 +10,9 @@ const MENU_DEPTH = 3;
 const resolveRoutes = () => {
 	const modules = import.meta.globEager('../../modules/**/index.js');
 	return Object.values(modules).reduce((routes, mod) => {
-		routes.push(mod.routes);
+		if (!basicModuleNames.includes(mod.routes.name)) {
+			routes.push(mod.routes);
+		}
 		return routes;
 	}, []);
 };

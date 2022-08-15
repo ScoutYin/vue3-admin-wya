@@ -3,9 +3,11 @@ import Layout from '@/layouts/index.vue';
 import { Exception } from '@/components/exception';
 import { PAGE_NOT_FOUND_NAME } from '../constants';
 
-const basicModules = ['login'];
+export const basicModuleNames = ['login'];
 
-export const basicModuleGlobs = basicModules.map((modName) => `../../modules/${modName}/index.js`);
+export const basicModuleGlobs = basicModuleNames.map(
+	(modName) => `../../modules/${modName}/index.js`
+);
 
 const rootRoute = {
 	path: '/',

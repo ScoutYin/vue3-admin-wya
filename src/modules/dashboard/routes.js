@@ -5,6 +5,7 @@ export const routes = {
 	name: 'dashboard',
 	redirect: '',
 	meta: {
+		icon: 'grid',
 		title: 'dashboard',
 	},
 	component: Layout,

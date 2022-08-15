@@ -25,7 +25,7 @@
 				class="__chunk-item"
 			>
 				<div class="_item-icon">
-					<vc-icon :type="chunk.icon" :inherit="chunk.inherit" class="g-m-r-5" />
+					<vc-icon :type="chunk.meta.icon" :inherit="chunk.inherit" class="g-m-r-5" />
 					<span>{{ chunk.meta.title }}</span>
 				</div>
 			</router-link>

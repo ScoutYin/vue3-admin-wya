@@ -4,7 +4,8 @@ export const routes = {
 	path: '/demo',
 	name: 'demo',
 	meta: {
-		title: '示例',
+		icon: 'celveguanli',
+		title: '页面',
 	},
 	component: Layout,
 	children: [

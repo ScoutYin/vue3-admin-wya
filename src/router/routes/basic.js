@@ -9,14 +9,13 @@ export const basicModuleGlobs = basicModuleNames.map(
 	(modName) => `../../modules/${modName}/index.js`
 );
 
-const rootRoute = {
+export const rootRoute = {
 	path: '/',
 	name: 'root',
 	meta: {
 		title: 'root',
 	},
-	// component: Layout,
-	redirect: '/dashboard', // TODO
+	redirect: '/login',
 };
 
 const loginRoute = {

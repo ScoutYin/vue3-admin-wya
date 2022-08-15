@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { stringifyQuery } from './utils';
-import { basicRoutes, getDynamicRoutes } from './routes';
+import { basicRoutes, getDynamicRoutes, rootRoute } from './routes';
 import { setupRouterGuard } from './guard';
 
 export * from './guard';
@@ -37,6 +37,8 @@ export const resetRouter = () => {
 export const addDynamicRoutes = () => {
 	const dynamicRoutes = getDynamicRoutes();
 	console.log(dynamicRoutes, 'dynamicRoutes');
+	rootRoute.redirect = dynamicRoutes[0] ? dynamicRoutes[0].path : '/login';
+	router.addRoute(rootRoute);
 	dynamicRoutes.forEach((route) => {
 		!router.hasRoute(route.name) && router.addRoute(route);
 	});

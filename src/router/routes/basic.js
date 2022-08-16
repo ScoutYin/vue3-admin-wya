@@ -1,5 +1,4 @@
 // import { resolveRoutesByGlob, normalizeRoutes } from '@/router/utils';
-import Layout from '@/layouts/index.vue';
 import { Exception } from '@/components/exception';
 import { PAGE_NOT_FOUND_NAME } from '../constants';
 
@@ -31,22 +30,9 @@ const pageNotFoundRoute = {
 	path: '/:path(.*)*',
 	name: PAGE_NOT_FOUND_NAME,
 	meta: {
-		title: 'Not found',
+		title: '页面不存在',
 	},
-	// component: Exception,
-	component: Layout,
-	children: [
-		{
-			path: '/:path(.*)*',
-			name: PAGE_NOT_FOUND_NAME,
-			component: Exception,
-			meta: {
-				title: 'Not found',
-				// hideBreadcrumb: true,
-				// hideMenu: true,
-			},
-		},
-	],
+	component: Exception,
 };
 // 不需要权限就可以访问的路由
 export const basicRoutes = [

@@ -1,5 +1,5 @@
 <template>
-	<vcc-set-title title="" class="v-tpl-paging-form-form" style="padding: 24px">
+	<vcc-set-title title="" class="v-tpl-paging-form-form">
 		<!-- 表单 -->
 		<div class="g-m-b-32">
 			<h3 class="g-m-b-24">表单样式</h3>

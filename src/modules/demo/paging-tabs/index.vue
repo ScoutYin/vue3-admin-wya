@@ -1,5 +1,5 @@
 <template>
-	<vcc-set-title title="" class="v-tpl-paging-tabs" style="padding: 24px">
+	<vcc-set-title title="" class="v-tpl-paging-tabs">
 		<vcc-paging-group
 			ref="pagingGroup"
 			:history="true"

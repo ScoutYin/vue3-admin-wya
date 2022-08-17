@@ -1,5 +1,5 @@
 <template>
-	<vcc-set-title title="" class="v-tpl-paging-basic" style="padding: 24px">
+	<vcc-set-title title="" class="v-tpl-paging-basic">
 		<vcc-paging
 			ref="paging"
 			:page-options="pageOptions"

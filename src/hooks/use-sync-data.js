@@ -1,5 +1,4 @@
-import { ref, reactive, watch, getCurrentInstance, inject } from 'vue';
-import { useRouter, useRoute } from 'vue-router';
+import { ref, watch, getCurrentInstance, inject } from 'vue';
 
 /**
  * 解决无法直接修改props的问题, 操作同一个对象
@@ -9,7 +8,7 @@ import { useRouter, useRoute } from 'vue-router';
  */
 export const useSyncData = (key = 'info', useInject = false) => {
 	const instance = getCurrentInstance();
-	const { props, emit } = instance;
+	const { props } = instance;
 	const currentValue = ref({});
 
 	if (useInject === true) {
@@ -24,10 +23,10 @@ export const useSyncData = (key = 'info', useInject = false) => {
 				}
 			},
 			{
-				immediate: true
+				immediate: true,
 			}
 		);
 	}
-	
+
 	return [currentValue];
 };

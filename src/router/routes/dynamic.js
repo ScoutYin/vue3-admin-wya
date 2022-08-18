@@ -8,7 +8,7 @@ import { normalizeRoute } from '../utils';
 const MENU_DEPTH = 3;
 
 const resolveRoutes = () => {
-	const modules = import.meta.globEager('../../modules/**/index.js');
+	const modules = import.meta.globEager('../../modules/*/index.js');
 	return Object.values(modules).reduce((routes, mod) => {
 		if (!basicModuleNames.includes(mod.routes.name)) {
 			routes.push(mod.routes);

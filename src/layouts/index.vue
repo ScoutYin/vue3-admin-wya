@@ -1,7 +1,7 @@
 <template>
 	<div class="c-layout g-flex">
 		<RouterView name="sideMenu" />
-		<div class="g-flex g-fd-c g-col">
+		<div class="c-layout__main g-flex g-fd-c g-col">
 			<RouterView name="topMenu" />
 			<RouterView name="breadcrumb" />
 			<div :class="!$route.meta.noWrapStyle ? 'is-wrap' : ''" class="c-layout__content g-col">
@@ -27,7 +27,13 @@ onBeforeRouteUpdate(() => {
 	height: 100vh;
 	overflow: hidden;
 
+	&__main {
+		overflow: hidden;
+	}
+
 	&__content {
+		overflow: auto;
+
 		&.is-wrap {
 			padding: 20px;
 			margin: 10px;

@@ -1,5 +1,5 @@
 <template>
-	<div class="v-layout-side-menu g-flex">
+	<aside class="v-layout-side-menu g-flex">
 		<div class="v-layout-side-menu__first-level">
 			<div style="height: 56px" class="g-flex-cc g-m-t-10">
 				<vc-popover
@@ -47,7 +47,7 @@
 				</router-link>
 			</div>
 		</div>
-	</div>
+	</aside>
 </template>
 
 <script setup>

@@ -11,8 +11,8 @@ specifiers:
   '@wya/qrcode': ^1.0.2
   '@wya/sass': ^2.0.0
   '@wya/utils': ^1.6.5
-  '@wya/vc': ^3.0.0-alpha.20
-  '@wya/vcc': ^0.0.25
+  '@wya/vc': 3.0.0-alpha.74
+  '@wya/vcc': 0.1.44
   '@wya/vue-cli': ^2.0.0-alpha.5
   autoprefixer: ^9.8.6
   babel-eslint: ^10.1.0
@@ -45,6 +45,7 @@ specifiers:
   prettier: ^2.7.1
   quill: ^1.3.7
   rimraf: ^3.0.2
+  rollup: ^2.78.1
   rollup-plugin-visualizer: ^4.2.2
   sass: ^1.32.8
   shelljs: ^0.8.4
@@ -53,7 +54,7 @@ specifiers:
   stylelint-config-standard-scss: ^5.0.0
   stylelint-config-standard-vue: ^1.0.0
   stylelint-order: ^4.1.0
-  vite: 2.9.15
+  vite: ^2.9.15
   vue: ^3.2.13
   vue-eslint-parser: ^9.0.3
   vue-router: ^4.0.12
@@ -67,7 +68,7 @@ dependencies:
   '@wya/sass': 2.0.0
   '@wya/utils': 1.6.6_@babel+runtime@7.18.9
   '@wya/vc': 3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a
-  '@wya/vcc': 0.0.25_s7jjomhbwioshzzgbyoq662ugq
+  '@wya/vcc': 0.1.44_s7jjomhbwioshzzgbyoq662ugq
   echarts: 5.3.3
   html2canvas: 1.4.1
   photoswipe: 4.1.3
@@ -109,7 +110,8 @@ devDependencies:
   postcss-preset-env: 7.7.2_postcss@8.4.14
   prettier: 2.7.1
   rimraf: 3.0.2
-  rollup-plugin-visualizer: 4.2.2
+  rollup: 2.78.1
+  rollup-plugin-visualizer: 4.2.2_rollup@2.78.1
   sass: 1.53.0
   shelljs: 0.8.5
   stylelint: 14.9.1
@@ -928,8 +930,19 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc-map/0.0.3_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-fYpjm0e3x/hoeQXZFrPwbURRpj9S93YWfPsARmYndZY1WsSJSXbbEBC4Ia3DtCZ7BMSyH6LhO14LQAgsMkGKZA==}
+  /@wya/vcc-gallery/0.0.35_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-VoeThkjtoCtOPPphkaIsHjDwu26u3Uw6ZnCXKis4RgsGZna9RDbecM9Jdjrz+v8X5makfpguJXj7DTTG24Askg==}
+    peerDependencies:
+      '@wya/vc': '~'
+      vue: ^3.2.31
+    dependencies:
+      '@wya/vc': 3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a
+      '@wya/vcc-paging': 0.0.56_s7jjomhbwioshzzgbyoq662ugq
+      vue: 3.2.37
+    dev: false
+
+  /@wya/vcc-map/0.0.4_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-1TGw6H9OGFMAo97GskSzInvykiGtTaNbn6YdHE2Tp2JGRgX1EbnbZNUZ4aUYZxs1EsnhccNRgF7kFTYH/h7RHw==}
     peerDependencies:
       '@wya/vc': '~'
       vue: ^3.2.31
@@ -938,8 +951,8 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc-operate/0.0.2_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-8wgoPdJlG58gKwvig28C+tx3e6HANK+aidhMo0tQUf/xrs9tHXC9VMXwtqwGzqepFt64eFu99IiDfKY2hSCTJw==}
+  /@wya/vcc-operate/0.0.7_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-ptiXOJGpMqy1CKpXbWSG7ieRtS7PfxoTqIiZPBFd7UPxoYhAivWlaHceOJqbgTxpuPrm2UhnrTwzER7dpVQvFA==}
     peerDependencies:
       '@wya/vc': '~'
       vue: ^3.2.31
@@ -948,8 +961,18 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc-paging/0.0.19_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-HgVfgb5ONUcSivTCmw+DSku0Ak8WfdzsEVfttIE+DvjRZ9DHzkAf6df/vVrkjndD8ctzE0ZWkgzaNum+GXXiSQ==}
+  /@wya/vcc-paging/0.0.56_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-lPLqBzp9Lr/J1gFhVEMGCd6+bCCLtqjQMHCl9yqRHxAw0/HfoO/eLUqjimp38Qh/s/Y+fkrkYaTtga+lIO6JOA==}
+    peerDependencies:
+      '@wya/vc': '~'
+      vue: ^3.2.31
+    dependencies:
+      '@wya/vc': 3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a
+      vue: 3.2.37
+    dev: false
+
+  /@wya/vcc-safe-mobile/0.0.2_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-vxUFL/ELURVU/mBvPQ9tTQ5fEzzt1NKK/eQMm5PwpWDc0TurQ7cjO8Nd1dtYCycmRfITTDIP0KacMC4PIG57tA==}
     peerDependencies:
       '@wya/vc': '~'
       vue: ^3.2.31
@@ -968,8 +991,8 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc-service/0.0.2_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-jC6gI4KChOmy3arHi/EAJ7upFDUtSLPRtfrxwJ9A7cQhUV/dhiKFyxpQkwFn5WzX8Rz528b7Oyef6qWDCi9M/w==}
+  /@wya/vcc-service/0.0.8_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-dDJygQakLlxId5toCudVab6fc7I4hAYbBQ8zBDOyChIvsuzn1zj1MCgiC8OiQieE2IWZjE31TJ65HHBLA9+LoA==}
     peerDependencies:
       '@wya/vc': '~'
       vue: ^3.2.31
@@ -978,8 +1001,8 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc-set-title/0.0.6_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-tq1HL/1ceLEPGnUN5F5RcqmJL071dZdWg3Itw5tTVt1Aj336fsCYOiVQszyr/qrpHlOP/I7RehBx9p1065zcWQ==}
+  /@wya/vcc-set-title/0.0.11_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-z/hI2L0ZHK9/1x+kJod6J02mfeQ9rmjEEgWkuvc9E5S6MSauZ6/LArEh6Rh9ht890NsJPEUWNkgC7puxnC8KiA==}
     peerDependencies:
       '@wya/vc': '~'
       vue: ^3.2.31
@@ -988,16 +1011,29 @@ packages:
       vue: 3.2.37
     dev: false
 
-  /@wya/vcc/0.0.25_s7jjomhbwioshzzgbyoq662ugq:
-    resolution: {integrity: sha512-504gpSyJ5FnyYwaP82ToNFU+N9BTEnrZF366y6mo2gZsddXXrKLtxUJTgyRmFEZJhhDSFKuJ7f+3LRKzrdqyOA==}
+  /@wya/vcc-table/0.0.4_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-q5sC3AqM8oHbMH0emKgZ1qNl0lzgzj72cGDQkQ8G+xPU0tzF68Xl+CujrwAGVPuq419dYo83f5GoW5UD9+JBWw==}
+    peerDependencies:
+      '@wya/vc': '~'
+      vue: ^3.2.31
+    dependencies:
+      '@wya/vc': 3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a
+      vue: 3.2.37
+    dev: false
+
+  /@wya/vcc/0.1.44_s7jjomhbwioshzzgbyoq662ugq:
+    resolution: {integrity: sha512-BIsfyqQV9hI2jUmw3YkdDPrK9FsvfWQNGRQAbGhLIRfPOLkxQUs1Z/qfzMJ0Mw6WDnYAWfjuLLeJ+McHTsYAXg==}
     dependencies:
       '@wya/vcc-footer': 0.0.6_s7jjomhbwioshzzgbyoq662ugq
-      '@wya/vcc-map': 0.0.3_s7jjomhbwioshzzgbyoq662ugq
-      '@wya/vcc-operate': 0.0.2_s7jjomhbwioshzzgbyoq662ugq
-      '@wya/vcc-paging': 0.0.19_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-gallery': 0.0.35_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-map': 0.0.4_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-operate': 0.0.7_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-paging': 0.0.56_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-safe-mobile': 0.0.2_s7jjomhbwioshzzgbyoq662ugq
       '@wya/vcc-section-title': 0.0.6_s7jjomhbwioshzzgbyoq662ugq
-      '@wya/vcc-service': 0.0.2_s7jjomhbwioshzzgbyoq662ugq
-      '@wya/vcc-set-title': 0.0.6_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-service': 0.0.8_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-set-title': 0.0.11_s7jjomhbwioshzzgbyoq662ugq
+      '@wya/vcc-table': 0.0.4_s7jjomhbwioshzzgbyoq662ugq
     transitivePeerDependencies:
       - '@wya/vc'
       - vue
@@ -5395,7 +5431,7 @@ packages:
       glob: 7.2.3
     dev: true
 
-  /rollup-plugin-visualizer/4.2.2:
+  /rollup-plugin-visualizer/4.2.2_rollup@2.78.1:
     resolution: {integrity: sha512-10/TsugsaQL5rdynl0lrklBngTtkRBESZdxUJy+3fN+xKqNdg5cr7JQU1OoPx4p5mhQ+nspa6EvX3qc8SsBvnA==}
     engines: {node: '>=10'}
     hasBin: true
@@ -5404,12 +5440,21 @@ packages:
     dependencies:
       nanoid: 3.3.4
       open: 7.4.2
+      rollup: 2.78.1
       source-map: 0.7.4
       yargs: 16.2.0
     dev: true
 
   /rollup/2.77.0:
     resolution: {integrity: sha512-vL8xjY4yOQEw79DvyXLijhnhh+R/O9zpF/LEgkCebZFtb6ELeN9H3/2T0r8+mp+fFTBHZ5qGpOpW2ela2zRt3g==}
+    engines: {node: '>=10.0.0'}
+    hasBin: true
+    optionalDependencies:
+      fsevents: 2.3.2
+    dev: true
+
+  /rollup/2.78.1:
+    resolution: {integrity: sha512-VeeCgtGi4P+o9hIg+xz4qQpRl6R401LWEXBmxYKOV4zlF82lyhgh2hTZnheFUbANE8l2A41F458iwj2vEYaXJg==}
     engines: {node: '>=10.0.0'}
     hasBin: true
     optionalDependencies:

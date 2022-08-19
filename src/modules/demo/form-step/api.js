@@ -1,5 +1,6 @@
 import { Network } from '@globals';
 
 Network.inject({
-	TPL_PAGING_FORM_GET: '',
+	DEMO_PAGING_FORM_STEPS_GET: '',
+	DEMO_PAGING_FORM_STEPS_POST: '',
 });

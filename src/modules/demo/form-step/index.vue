@@ -1,113 +1,117 @@
 <template>
-	<vcc-set-title title="" class="v-tpl-paging-form-form">
-		<!-- 表单 -->
-		<div class="g-m-b-32">
-			<h3 class="g-m-b-24">表单样式</h3>
-			<!-- 96位所有label中最宽的长度 -->
-			<vc-form
-				ref="formRef"
-				:model="formValidate"
-				:rules="ruleValidate"
-				:label-width="96"
-				class="g-pd-l-56 g-m-t-21"
-				position="left"
-			>
-				<vc-form-item label="商品名称：" prop="product_name">
-					<vc-input
-						v-model="formValidate.product_name"
-						class="v-input"
-						placeholder="请输入"
-						style="width: 300px"
-					/>
-				</vc-form-item>
+	<vcc-set-title title="带操作步骤的表单" style="padding-bottom: 70px">
+		<vc-steps-bar v-model="step" :data-source="steps" class="g-m-b-24" readonly />
 
-				<vc-form-item label="商品主图：" prop="original_img">
-					<vc-upload-picker class="g-m-t-26" />
-				</vc-form-item>
-				<vc-form-item label="商品分类：" prop="my_company">
-					<vc-select
-						v-model="formValidate.my_company"
-						clearable
-						transfer
-						placeholder="请选择我方合同公司"
-						style="width: 300px"
-					>
-						<vc-option v-for="(item, $index) in company" :key="$index" value="item">
-							{{ item }}
-						</vc-option>
-					</vc-select>
-				</vc-form-item>
-			</vc-form>
-		</div>
-		<!-- 展示 -->
-		<div class="g-m-b-32">
-			<h3 class="g-m-b-24">弹框内上下边距16px</h3>
-			<!-- 小弹框居中 |  中弹框距离左侧120 | 大弹框24，有进度条的距离左侧24-->
-			<div class="g-pd-l-56">
-				<div class="g-flex g-m-b-16">
-					<div class="g-c-333">商品名称：</div>
-					<div class="g-c-51">安徽省电话费</div>
-				</div>
-				<div class="g-flex g-m-b-16">
-					<div class="g-c-333">商品名称：</div>
-					<div class="g-c-51">安徽省电话费</div>
-				</div>
-				<div class="g-flex g-m-b-16">
-					<div class="g-c-333">商品名称：</div>
-					<div class="g-c-51">安徽省电话费</div>
-				</div>
-				<div class="g-flex g-m-b-16">
-					<div class="g-c-333">商品名称：</div>
-					<div class="g-c-51">安徽省电话费</div>
-				</div>
-				<div class="g-flex g-m-b-16">
-					<div class="g-c-333">商品名称：</div>
-					<div class="g-c-51">安徽省电话费</div>
-				</div>
-			</div>
-		</div>
-		<vc-button @click="$router.back()"> 取消 </vc-button>
-		<vc-button type="primary" @click="handleSubmit"> 确定 </vc-button>
+		<template v-if="step === 1">
+			<vcc-section-title>步骤一设置</vcc-section-title>
+			<gx-step1 ref="step1Ref" :info="formData" />
+		</template>
+
+		<template v-else-if="step === 2">
+			<vcc-section-title>步骤二设置</vcc-section-title>
+			<gx-step2 ref="step2Ref" :info="formData" />
+		</template>
+		<template v-else-if="step === 3">
+			<vcc-section-title>步骤三设置</vcc-section-title>
+			<gx-step3 ref="step3Ref" :info="formData" />
+		</template>
+
+		<vcc-footer
+			:ok-text="okText"
+			:cancel-text="cancelText"
+			@cancel="handleCancel"
+			@ok="handleSave"
+		/>
 	</vcc-set-title>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import './api';
+import { ref, onMounted, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
+import { cloneDeep } from 'lodash';
+import { Network } from '@/globals';
+import { useSessionData } from '@/hooks';
+import GxStep1 from './components/step1.vue';
+import GxStep2 from './components/step2.vue';
+import GxStep3 from './components/step3.vue';
 
-const formRef = ref(null);
-const company = reactive(['阿里', '有赞', '网易', '滴滴']);
-const formValidate = reactive({
-	product_name: 'xxxxx',
-	original_img: '',
+const route = useRoute();
+const router = useRouter();
+
+const editorId = route.params.id;
+const isEdit = !!editorId;
+
+const step1Ref = ref();
+const step2Ref = ref();
+const step3Ref = ref();
+
+const step = ref(1);
+const steps = ref([
+	{ label: '步骤一', value: 1 },
+	{ label: '步骤二', value: 2 },
+	{ label: '步骤三', value: 3 },
+]);
+
+const okText = computed(() => {
+	return step.value === steps.value.length ? '保存' : '下一步';
 });
-const ruleValidate = reactive({
-	product_name: [
-		{
-			required: true,
-			message: '商品名称必须填写，最多100个字',
-		},
-	],
-	original_img: [
-		{
-			required: true,
-			message: '最少添加一张商品图片',
-		},
-	],
+
+const cancelText = computed(() => {
+	return step.value === 1 ? '取消' : '上一步';
 });
-const handleSubmit = () => {
-	formRef.value
-		.validate()
-		.then((res) => {
-			// ..
-		})
-		.catch((res) => {
-			console.log(res);
-		});
+
+const [formData] = useSessionData({
+	product_name: '',
+	retail_price: '',
+	product_status: 1,
+});
+
+const loadData = async () => {
+	const { data } = await Network.request({
+		url: 'DEMO_PAGING_FORM_STEPS_GET',
+		param: {
+			product_id: editorId,
+		},
+	});
+	Object.assign(formData, data);
 };
+
+const getDataForSave = () => {
+	const data = cloneDeep(formData);
+
+	// 此处可对数据进行相应处理...
+
+	return data;
+};
+
+const handleSave = async () => {
+	if (step.value === 1) {
+		await step1Ref.value.validate();
+	} else if (step.value === 2) {
+		await step2Ref.value.validate();
+	}
+
+	if (step.value < steps.value.length) {
+		step.value++;
+		return;
+	}
+
+	await Network.request({
+		url: 'DEMO_PAGING_FORM_STEPS_POST',
+		type: 'POST',
+		param: getDataForSave(),
+	});
+	router.back();
+};
+
+const handleCancel = () => {
+	step.value <= 1 ? router.back() : step.value--;
+};
+
+onMounted(() => {
+	isEdit && loadData();
+});
 </script>
 
-<style lang="scss">
-.v-tpl-paging-form-form {
-	padding-bottom: 70px;
-}
-</style>
+<style lang="scss"></style>

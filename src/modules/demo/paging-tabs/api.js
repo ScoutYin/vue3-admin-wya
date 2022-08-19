@@ -1,5 +1,5 @@
 import { Network } from '@globals';
 
 Network.inject({
-	TPL_PAGING_TABS_GET: '',
+	DEMO_PAGING_TABS_GET: '',
 });

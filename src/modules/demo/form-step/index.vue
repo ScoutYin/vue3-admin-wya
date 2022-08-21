@@ -30,7 +30,7 @@ import './api';
 import { ref, onMounted, computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { cloneDeep } from 'lodash';
-import { Network } from '@/globals';
+import { Network } from '@/config';
 import { useSessionData } from '@/hooks';
 import GxStep1 from './components/step1.vue';
 import GxStep2 from './components/step2.vue';

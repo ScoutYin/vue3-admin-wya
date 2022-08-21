@@ -16,7 +16,7 @@
 
 <script setup>
 import './api';
-import { Network } from '@/globals';
+import { Network } from '@/config';
 import { usePaging } from '@/hooks';
 import { useActions, useFilters } from './hooks';
 

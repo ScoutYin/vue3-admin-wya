@@ -26,10 +26,6 @@ export default (options) => {
 					replacement: pathResolve('src') + '/',
 				},
 				{
-					find: /@globals/,
-					replacement: pathResolve('src') + '/globals/',
-				},
-				{
 					find: /@assets/,
 					replacement: pathResolve('src') + '/assets/',
 				},

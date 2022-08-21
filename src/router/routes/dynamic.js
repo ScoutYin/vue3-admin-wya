@@ -1,6 +1,6 @@
 // import { basicModuleGlobs } from './basic';
 import { basicModuleNames } from './basic';
-import { Global } from '@/globals';
+import { Global } from '@/config';
 import { normalizeRoute } from '../utils';
 
 // const excludeBasicGlobs = basicModuleGlobs.map((glob) => `!${glob}`);

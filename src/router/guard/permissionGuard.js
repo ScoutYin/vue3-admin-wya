@@ -1,4 +1,4 @@
-import { Global } from '@/globals';
+import { Global } from '@/config';
 
 export const createPermissionGuard = (router) => {
 	router.beforeEach((to) => {

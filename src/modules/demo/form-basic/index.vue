@@ -10,7 +10,7 @@
 <script setup>
 import './api';
 import { onMounted, ref, reactive } from 'vue';
-import { Network } from '@/globals';
+import { Network } from '@/config';
 import { GxBase } from './sections';
 
 const baseRef = ref();

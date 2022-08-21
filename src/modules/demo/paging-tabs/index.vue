@@ -34,7 +34,7 @@
 <script setup>
 import './api';
 import { ref } from 'vue';
-import { Network } from '@/globals';
+import { Network } from '@/config';
 import { useTabsPaging, useSelection } from '@/hooks';
 import { useFilters, useActions } from './hooks';
 

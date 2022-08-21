@@ -5,4 +5,4 @@
 **/*.svg
 **/*.sh
 
-/assets/static/*
+/public/*

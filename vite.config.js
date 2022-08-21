@@ -18,7 +18,6 @@ export default (options) => {
 		 * publicDir: 同webpack copy文件夹内的静态资源
 		 */
 		base: ENV_IS_DEV ? '/' : '/',
-		publicDir: 'src/assets/static',
 
 		resolve: {
 			alias: [

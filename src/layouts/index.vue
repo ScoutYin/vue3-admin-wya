@@ -1,11 +1,11 @@
 <template>
 	<section class="c-layout g-flex">
-		<RouterView name="sideMenu" />
+		<router-view name="sideMenu" />
 		<div class="c-layout__main g-flex g-fd-c g-col">
-			<RouterView name="topMenu" />
-			<RouterView name="breadcrumb" />
+			<router-view name="topMenu" />
+			<router-view name="breadcrumb" />
 			<main :class="!$route.meta.noWrapStyle ? 'is-wrap' : ''" class="c-layout__content g-col">
-				<RouterView />
+				<router-view />
 			</main>
 		</div>
 	</section>

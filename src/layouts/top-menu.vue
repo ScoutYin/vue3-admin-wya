@@ -1,7 +1,7 @@
 <template>
 	<div class="v-layout-top">
 		<div class="g-flex-ac g-jc-sb">
-			<div v-if="topMenus.length === 1" class="_name">
+			<div v-if="topMenus.length === 1" class="c-layout-top__menu-item is-single">
 				{{ topMenus[0].meta.title }}
 			</div>
 			<div v-else class="g-flex-ac g-fw-w">
@@ -9,8 +9,8 @@
 					v-for="menu in topMenus"
 					:key="menu.path"
 					:to="menu.path"
-					:class="activeChain[2].path === menu.path ? '_menu-item-active' : '_menu-item-unactive'"
-					class="_menu-item"
+					:class="{ 'is-active': activeChain[2].path === menu.path }"
+					class="c-layout-top__menu-item"
 				>
 					{{ menu.meta.title }}
 				</router-link>
@@ -37,37 +37,34 @@ const topMenus = computed(() => {
 	background-color: var(--white);
 	border-bottom: 1px solid var(--cd9);
 
-	._name {
+	.c-layout-top__menu-item {
 		height: 56px;
-		padding-left: 21px;
+		padding: 0 10px;
 		font-size: 14px;
 		line-height: 56px;
 		color: var(--black);
 	}
 
-	._menu-item {
-		height: 56px;
-		margin-right: 48px;
-		font-size: 14px;
-		line-height: 56px;
+	.c-layout-top__menu-item:not(.is-single) {
+		margin-right: 20px;
 		cursor: pointer;
-	}
-
-	._menu-item-unactive {
-		color: var(--black);
 		opacity: 0.8;
+
+		&:not(:first-child) {
+			margin: 0 20px;
+		}
 
 		&:hover {
 			opacity: 1;
 			transition: opacity 0.2s ease-in-out;
 			will-change: opacity;
 		}
-	}
 
-	._menu-item-active {
-		color: var(--main);
-		border-bottom: 2px solid var(--main);
-		box-sizing: border-box;
+		&.is-active {
+			color: var(--main);
+			border-bottom: 2px solid var(--main);
+			box-sizing: border-box;
+		}
 	}
 }
 </style>

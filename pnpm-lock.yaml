@@ -23,7 +23,6 @@ specifiers:
   eslint: ^8.20.0
   eslint-config-airbnb-base: ^14.2.1
   eslint-config-prettier: ^8.5.0
-  eslint-plugin-babel: ^5.3.1
   eslint-plugin-import: ^2.22.1
   eslint-plugin-markdown: ^2.0.0
   eslint-plugin-prettier: ^4.2.1
@@ -91,7 +90,6 @@ devDependencies:
   eslint: 8.20.0
   eslint-config-airbnb-base: 14.2.1_afl3vkhn63baibzal45igheroq
   eslint-config-prettier: 8.5.0_eslint@8.20.0
-  eslint-plugin-babel: 5.3.1_eslint@8.20.0
   eslint-plugin-import: 2.26.0_eslint@8.20.0
   eslint-plugin-markdown: 2.2.1_eslint@8.20.0
   eslint-plugin-prettier: 4.2.1_g4fztgbwjyq2fvmcscny2sj6fy
@@ -2416,16 +2414,6 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-plugin-babel/5.3.1_eslint@8.20.0:
-    resolution: {integrity: sha512-VsQEr6NH3dj664+EyxJwO4FCYm/00JhYb3Sk3ft8o+fpKuIfQ9TaW6uVUfvwMXHcf/lsnRIoyFPsLMyiWCSL/g==}
-    engines: {node: '>=4'}
-    peerDependencies:
-      eslint: '>=4.0.0'
-    dependencies:
-      eslint: 8.20.0
-      eslint-rule-composer: 0.3.0
-    dev: true
-
   /eslint-plugin-import/2.26.0_eslint@8.20.0:
     resolution: {integrity: sha512-hYfi3FXaM8WPLf4S1cikh/r4IxnO6zrhZbEGz2b660EJRbuxgpDS5gkCuYgGWg2xxh2rBuIr4Pvhve/7c31koA==}
     engines: {node: '>=4'}
@@ -2501,11 +2489,6 @@ packages:
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /eslint-rule-composer/0.3.0:
-    resolution: {integrity: sha512-bt+Sh8CtDmn2OajxvNO+BX7Wn4CIWMpTRm3MaiKPCQcnnlm0CS2mhui6QaoeQugs+3Kj2ESKEEGJUdVafwhiCg==}
-    engines: {node: '>=4.0.0'}
     dev: true
 
   /eslint-scope/7.1.1:

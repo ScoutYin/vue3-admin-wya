@@ -24,7 +24,7 @@ module.exports = {
 		'plugin:vue/vue3-recommended',
 		'plugin:prettier/recommended',
 	],
-	plugins: ['markdown', 'babel', 'vue'],
+	plugins: ['markdown', 'vue'],
 	settings: {
 		'import/resolver': {
 			node: {

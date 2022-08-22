@@ -8,7 +8,7 @@
 		"serve": "vite --host",
 		"build": "vite build",
 		"preview": "vite preview",
-		"clean": "rm -rf ./node_modules/.cache ./node_modules/.vite ./dist",
+		"clean": "rimraf ./node_modules/.cache ./node_modules/.vite ./dist",
 		"prompt": "node ./build/script/prompt.js",
 		"lint": "eslint src build config --ext .vue,.js,.jsx",
 		"lint:fix": "npm run lint -- --fix",

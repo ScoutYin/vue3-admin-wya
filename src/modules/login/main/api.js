@@ -1,5 +1,3 @@
-import { Network } from '@globals';
+import { Network } from '@/config';
 
-Network.inject({
-
-});
+Network.inject({});

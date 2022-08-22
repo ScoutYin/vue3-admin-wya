@@ -1,5 +1,5 @@
 import { IN_BROWSER } from '@constants/constant';
-import { Global } from '@globals/index';
+import { Global } from '@/config/index';
 
 class ScrollManager {
 	constructor() {

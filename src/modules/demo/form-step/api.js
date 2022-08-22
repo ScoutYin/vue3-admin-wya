@@ -1,4 +1,4 @@
-import { Network } from '@globals';
+import { Network } from '@/config';
 
 Network.inject({
 	DEMO_PAGING_FORM_STEPS_GET: '',

@@ -10,9 +10,8 @@
 		"preview": "vite preview",
 		"clean": "rm -rf ./node_modules/.cache ./node_modules/.vite ./dist",
 		"prompt": "node ./build/script/prompt.js",
-		"lint": "esw src build config --ext .vue,.js,.jsx --color",
+		"lint": "eslint src build config --ext .vue,.js,.jsx",
 		"lint:fix": "npm run lint -- --fix",
-		"lint:watch": "npm run lint -- --watch --fix",
 		"lint:style": "stylelint --fix 'src/**/*.{vue,css,scss}' --cache --cache-location node_modules/.cache/stylelint/",
 		"all": "cross-env NODE_ENV=development npm-run-all --parallel --race --continue-on-error serve",
 		"prepare": "husky install"
@@ -56,7 +55,6 @@
 		"eslint-plugin-markdown": "^2.0.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-vue": "^9.2.0",
-		"eslint-watch": "^7.0.0",
 		"fs-extra": "^9.1.0",
 		"husky": "^8.0.0",
 		"inquirer": "^8.0.0",

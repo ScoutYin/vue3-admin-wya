@@ -1,8 +1,10 @@
 import * as WYA_VC from '@wya/vc';
 import * as WYA_VCC from '@wya/vcc';
+import { Global } from './global';
+import { Network } from './network';
 
 export const getVcConfig = (options) => {
-	const { Global, Network, Router } = options;
+	const { Router } = options;
 	return {
 		Icon: {
 			urls: ['//at.alicdn.com/t/c/font_3590527_hfrik3xwar5.js'],

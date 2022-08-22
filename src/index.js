@@ -4,15 +4,13 @@ import '@wya/vc/lib/vc.min.css';
 import { createApp } from 'vue';
 import * as WYA_VC from '@wya/vc';
 import * as WYA_VCC from '@wya/vcc';
-import { Global, Network, getVcConfig, getVccConfig } from '@/config';
+import { Global, getVcConfig, getVccConfig } from '@/config';
 import { router, setupRouter } from './router';
 
 import App from './app.vue';
 
 const app = createApp(App);
 const options = {
-	Global,
-	Network,
 	Router: router,
 };
 

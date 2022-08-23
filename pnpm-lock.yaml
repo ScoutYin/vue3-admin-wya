@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@babel/runtime': ^7.16.7
   '@vitejs/plugin-legacy': ^1.5.0
   '@vitejs/plugin-vue': ^1.3.0
   '@vitejs/plugin-vue-jsx': ^1.1.7
@@ -55,15 +54,13 @@ specifiers:
   vue: ^3.2.13
   vue-eslint-parser: ^9.0.3
   vue-router: ^4.0.12
-  vuex: ^4.0.2
 
 dependencies:
-  '@babel/runtime': 7.18.9
-  '@wya/http': 1.5.2_@babel+runtime@7.18.9
-  '@wya/ps': 1.0.3_@babel+runtime@7.18.9
-  '@wya/qrcode': 1.0.2_@babel+runtime@7.18.9
+  '@wya/http': 1.5.2
+  '@wya/ps': 1.0.3
+  '@wya/qrcode': 1.0.2
   '@wya/sass': 2.0.0
-  '@wya/utils': 1.6.6_@babel+runtime@7.18.9
+  '@wya/utils': 1.6.6
   '@wya/vc': 3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a
   '@wya/vcc': 0.1.44_s7jjomhbwioshzzgbyoq662ugq
   echarts: 5.3.3
@@ -73,7 +70,6 @@ dependencies:
   quill: 1.3.7
   vue: 3.2.37
   vue-router: 4.1.2_vue@3.2.37
-  vuex: 4.0.2_vue@3.2.37
 
 devDependencies:
   '@vitejs/plugin-legacy': 1.8.2_vite@2.9.15
@@ -381,6 +377,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
+    dev: true
 
   /@babel/standalone/7.18.9:
     resolution: {integrity: sha512-6E+p5azHMHcMkHzGFnA7Pqhtgfwx1cClwjMqomMHhdFupCLZDDpVQUctRGYE7p7nn7cXJZSI/L9en+tt30AP3w==}
@@ -839,31 +836,26 @@ packages:
   /@vue/shared/3.2.37:
     resolution: {integrity: sha512-4rSJemR2NQIo9Klm1vabqWjD8rs/ZaJSzMxkMNeJS6lHiUjjUeYFbooN19NgFjztubEKh3WlZUeOLVdbbUWHsw==}
 
-  /@wya/http/1.5.2_@babel+runtime@7.18.9:
+  /@wya/http/1.5.2:
     resolution: {integrity: sha512-yac94zj6WGWLrlO34YC1+SBWt0M6fuqy/5MFv+IZ0m/pvd3z0vLAGCRqxvJeV1DU+NzETYPUjg7jUOSYVd4rVA==}
     peerDependencies:
       '@babel/runtime': '>=7.0.0'
     dependencies:
-      '@babel/runtime': 7.18.9
       follow-redirects: 1.15.1
     transitivePeerDependencies:
       - debug
     dev: false
 
-  /@wya/ps/1.0.3_@babel+runtime@7.18.9:
+  /@wya/ps/1.0.3:
     resolution: {integrity: sha512-8L/JYZPpzyLGREyLeMwsst8Atzzs1+91qU2ClsaYUEK/uLrWGAGfKPDyRZedSUV2YtKBuIq5g/OQXL+pZdVaqg==}
     peerDependencies:
       '@babel/runtime': '>=7.0.0'
-    dependencies:
-      '@babel/runtime': 7.18.9
     dev: false
 
-  /@wya/qrcode/1.0.2_@babel+runtime@7.18.9:
+  /@wya/qrcode/1.0.2:
     resolution: {integrity: sha512-GIRnkb3uhtadCIY3qTabAPmxUDfW2WeJj3dfSahFN990QjC2kFo22+mWevIDru0+8DCvO/ZCvJvElMAawL3DjQ==}
     peerDependencies:
       '@babel/runtime': '>=7.0.0'
-    dependencies:
-      '@babel/runtime': 7.18.9
     dev: false
 
   /@wya/sass/2.0.0:
@@ -880,12 +872,10 @@ packages:
       request: 2.88.2
     dev: true
 
-  /@wya/utils/1.6.6_@babel+runtime@7.18.9:
+  /@wya/utils/1.6.6:
     resolution: {integrity: sha512-SFfR7VVpRqxx8f5B6AmARhzzwvgDCX6vU4Em5wRninOrtHtQSlHS3+I0CEimfmwnO6BAJWsU9m6ViY94+Ve8XA==}
     peerDependencies:
       '@babel/runtime': '>=7.0.0'
-    dependencies:
-      '@babel/runtime': 7.18.9
     dev: false
 
   /@wya/vc/3.0.0-alpha.74_e53kxypc5pw3udwuyvzo4xlq2a:
@@ -899,8 +889,8 @@ packages:
       quill: ^1.3.7
       vue: ^3.2.1
     dependencies:
-      '@wya/http': 1.5.2_@babel+runtime@7.18.9
-      '@wya/utils': 1.6.6_@babel+runtime@7.18.9
+      '@wya/http': 1.5.2
+      '@wya/utils': 1.6.6
       async-validator: 3.5.2
       echarts: 5.3.3
       html2canvas: 1.4.1
@@ -5162,6 +5152,7 @@ packages:
 
   /regenerator-runtime/0.13.9:
     resolution: {integrity: sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==}
+    dev: true
 
   /regexp.prototype.flags/1.4.3:
     resolution: {integrity: sha512-fjggEOO3slI6Wvgjwflkc4NFRCTZAu5CnNfBd5qOMYhWdn67nJBBu34/TkD++eeFmd8C9r9jfXJ27+nSiRkSUA==}
@@ -6163,15 +6154,6 @@ packages:
       '@vue/runtime-dom': 3.2.37
       '@vue/server-renderer': 3.2.37_vue@3.2.37
       '@vue/shared': 3.2.37
-    dev: false
-
-  /vuex/4.0.2_vue@3.2.37:
-    resolution: {integrity: sha512-M6r8uxELjZIK8kTKDGgZTYX/ahzblnzC4isU1tpmEuOIIKmV+TRdc+H4s8ds2NuZ7wpUTdGRzJRtoj+lI+pc0Q==}
-    peerDependencies:
-      vue: ^3.0.2
-    dependencies:
-      '@vue/devtools-api': 6.2.1
-      vue: 3.2.37
     dev: false
 
   /wcwidth/1.0.1:

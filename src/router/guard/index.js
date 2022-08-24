@@ -1,5 +1,5 @@
-import { createPermissionGuard } from './permissionGuard';
-import { createErrorHandler } from './errorHandler';
+import { createPermissionGuard } from './permission';
+import { createErrorHandler } from './error-handler';
 
 export const setupRouterGuard = (router) => {
 	createPermissionGuard(router);

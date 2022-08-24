@@ -5,3 +5,5 @@ assets
 **/*.css
 **/*.html
 **/*.min.js
+*.md
+.husky

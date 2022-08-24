@@ -7,11 +7,11 @@ import { resolve } from 'path';
 const nms = [
 	resolve(__dirname, '../node_modules'),
 	resolve(process.cwd(), './node_modules'),
-	...module.paths
+	...module.paths,
 ];
 
 export const resolvePackage = (source, options = {}) => {
-	let $path = nms.find(i => fs.pathExistsSync(resolve(i, source)));
+	let $path = nms.find((i) => fs.pathExistsSync(resolve(i, source)));
 
 	if (!$path) {
 		throw new Error(`@wya/vue-scaffold: 未找到${source}`);
@@ -21,7 +21,6 @@ export const resolvePackage = (source, options = {}) => {
 
 	return options.read ? fs.readFileSync(fullPath) : fullPath;
 };
-
 
 export const isDev = (value) => {
 	return value === 'development';

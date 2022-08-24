@@ -3,8 +3,6 @@ import { resolve } from 'path';
 import { resolvePackage, isDev } from './build/utils';
 import { createPlugins } from './build/vite';
 
-const TIMESTAMP = new Date().getTime();
-
 const pathResolve = (dir) => {
 	return resolve(process.cwd(), '.', dir);
 };
@@ -43,7 +41,7 @@ export default (options) => {
 
 		build: {
 			outDir: 'dist',
-			assetsDir: `static.${TIMESTAMP}`,
+			assetsDir: 'assets',
 		},
 
 		define: {

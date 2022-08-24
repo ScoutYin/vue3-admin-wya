@@ -1,7 +1,6 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@vitejs/plugin-legacy': ^1.5.0
   '@vitejs/plugin-vue': ^1.3.0
   '@vitejs/plugin-vue-jsx': ^1.1.7
   '@vue/compiler-sfc': ^3.2.13
@@ -72,7 +71,6 @@ dependencies:
   vue-router: 4.1.2_vue@3.2.37
 
 devDependencies:
-  '@vitejs/plugin-legacy': 1.8.2_vite@2.9.15
   '@vitejs/plugin-vue': 1.10.2_vite@2.9.15
   '@vitejs/plugin-vue-jsx': 1.3.10
   '@vue/compiler-sfc': 3.2.37
@@ -377,11 +375,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.13.9
-    dev: true
-
-  /@babel/standalone/7.18.9:
-    resolution: {integrity: sha512-6E+p5azHMHcMkHzGFnA7Pqhtgfwx1cClwjMqomMHhdFupCLZDDpVQUctRGYE7p7nn7cXJZSI/L9en+tt30AP3w==}
-    engines: {node: '>=6.9.0'}
     dev: true
 
   /@babel/template/7.18.6:
@@ -695,20 +688,6 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
-    dev: true
-
-  /@vitejs/plugin-legacy/1.8.2_vite@2.9.15:
-    resolution: {integrity: sha512-NCOKU+pU+cxLMR9P9RTolEuOK+h+zYBXlknj+zGcKSj/NXBZYgA1GAH1FnO4zijoWRiTaiOm2ha9LQrELE7XHg==}
-    engines: {node: '>=12.0.0'}
-    peerDependencies:
-      vite: ^2.8.0
-    dependencies:
-      '@babel/standalone': 7.18.9
-      core-js: 3.23.5
-      magic-string: 0.26.2
-      regenerator-runtime: 0.13.9
-      systemjs: 6.12.1
-      vite: 2.9.15_sass@1.53.0
     dev: true
 
   /@vitejs/plugin-vue-jsx/1.3.10:
@@ -1600,11 +1579,6 @@ packages:
     resolution: {integrity: sha512-+OQdjP49zViI/6i7nIJpA8rAl4sV/JdPfU9nZs3VqOwGIgizICvuN2ru6fMd+4llL0tar18UYJXfZ/TWtmhUjA==}
     dependencies:
       safe-buffer: 5.1.2
-    dev: true
-
-  /core-js/3.23.5:
-    resolution: {integrity: sha512-7Vh11tujtAZy82da4duVreQysIoO2EvVrur7y6IzZkH1IHPSekuDi8Vuw1+YKjkbfWLRD7Nc9ICQ/sIUDutcyg==}
-    requiresBuild: true
     dev: true
 
   /core-util-is/1.0.2:
@@ -3752,13 +3726,6 @@ packages:
     dependencies:
       sourcemap-codec: 1.4.8
 
-  /magic-string/0.26.2:
-    resolution: {integrity: sha512-NzzlXpclt5zAbmo6h6jNc8zl2gNRGHvmsZW4IvZhTC4W7k4OlLP+S5YLussa/r3ixNT66KOQfNORlXHSOy/X4A==}
-    engines: {node: '>=12'}
-    dependencies:
-      sourcemap-codec: 1.4.8
-    dev: true
-
   /map-age-cleaner/0.1.3:
     resolution: {integrity: sha512-bJzx6nMoP6PDLPBFmg7+xRKeFZvFboMrGlxmNj9ClvX53KrmvM5bXFXEWjbz4cz1AFn+jWJ9z/DJSz7hrs0w3w==}
     engines: {node: '>=6'}
@@ -5849,10 +5816,6 @@ packages:
       stable: 0.1.8
       unquote: 1.1.1
       util.promisify: 1.0.1
-    dev: true
-
-  /systemjs/6.12.1:
-    resolution: {integrity: sha512-hqTN6kW+pN6/qro6G9OZ7ceDQOcYno020zBQKpZQLsJhYTDMCMNfXi/Y8duF5iW+4WWZr42ry0MMkcRGpbwG2A==}
     dev: true
 
   /table/6.8.0:

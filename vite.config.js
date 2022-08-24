@@ -25,10 +25,6 @@ export default (options) => {
 					find: /@\//,
 					replacement: pathResolve('src') + '/',
 				},
-				{
-					find: /@assets/,
-					replacement: pathResolve('src') + '/assets/',
-				},
 			],
 		},
 

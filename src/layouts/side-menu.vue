@@ -62,7 +62,7 @@
 import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { Modal } from '@wya/vc';
-import LOGO from '@assets/image/logo.png';
+import LOGO from '@/assets/image/logo.png';
 import { Global, Network } from '@/config';
 import { useMenus } from './hooks';
 

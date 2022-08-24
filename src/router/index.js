@@ -36,13 +36,11 @@ export const resetRouter = () => {
 
 export const addDynamicRoutes = () => {
 	const dynamicRoutes = getDynamicRoutes();
-	console.log(dynamicRoutes, 'dynamicRoutes');
 	rootRoute.redirect = dynamicRoutes[0] ? dynamicRoutes[0].path : '/login';
 	router.addRoute(rootRoute);
 	dynamicRoutes.forEach((route) => {
 		!router.hasRoute(route.name) && router.addRoute(route);
 	});
-	console.log(router.currentRoute.path, router.getRoutes());
 };
 
 export const setupRouter = (app) => {

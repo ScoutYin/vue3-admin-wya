@@ -35,9 +35,4 @@ const pageNotFoundRoute = {
 	component: Exception,
 };
 // 不需要权限就可以访问的路由
-export const basicRoutes = [
-	rootRoute,
-	loginRoute,
-	// ...normalizeRoutes(resolveRoutesByGlob(basicModuleGlobs)),
-	pageNotFoundRoute,
-];
+export const basicRoutes = [rootRoute, loginRoute, pageNotFoundRoute];

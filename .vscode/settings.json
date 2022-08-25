@@ -16,5 +16,6 @@
 		"editor.codeActionsOnSave": {
 			"source.fixAll.stylelint": true
 		}
-	}
+	},
+	"cSpell.words": ["echarts", "stylelint", "browserslist", "qrcode", "alicdn", "camelcase", "vocli"]
 }

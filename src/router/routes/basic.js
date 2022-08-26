@@ -1,12 +1,7 @@
-// import { resolveRoutesByGlob, normalizeRoutes } from '@/router/utils';
 import { Exception } from '@/components/exception';
 import { PAGE_NOT_FOUND_NAME } from '../constants';
 
 export const basicModuleNames = ['login'];
-
-export const basicModuleGlobs = basicModuleNames.map(
-	(modName) => `../../modules/${modName}/index.js`
-);
 
 export const rootRoute = {
 	path: '/',
@@ -34,5 +29,6 @@ const pageNotFoundRoute = {
 	},
 	component: Exception,
 };
+
 // 不需要权限就可以访问的路由
 export const basicRoutes = [rootRoute, loginRoute, pageNotFoundRoute];

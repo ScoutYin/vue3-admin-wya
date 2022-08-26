@@ -88,7 +88,7 @@ class GlobalManager extends EventStore {
 		addDynamicRoutes();
 
 		if (this.router) {
-			this.router.push('/');
+			this.router.replace('/');
 		}
 	}
 

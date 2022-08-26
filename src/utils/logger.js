@@ -32,7 +32,7 @@ export default class Logger extends EventStore {
 						return i || '';
 					}
 				})
-				.join('')
+				.join(''),
 		});
 	}
 

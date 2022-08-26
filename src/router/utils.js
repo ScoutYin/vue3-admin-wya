@@ -92,9 +92,6 @@ const getRedirectPath = (routeRecord) => {
 	return routeRecord.redirect || routeRecord.children?.[0]?.path;
 };
 
-// const sideMenuImporter = () => import('../layouts/side-menu.vue');
-// const topMenuImporter = () => import('../layouts/top-menu.vue');
-
 export const normalizeRoute = (route) => {
 	if (!route.meta) {
 		route.meta = {};

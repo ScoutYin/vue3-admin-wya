@@ -23,7 +23,7 @@ const ctxReduce = (ctx, v, cb) => {
  * 	.catch(() => {}) // 异常捕获，但不包括中断，中断是主动行为
  *
  * serial.cancel();
- * 
+ *
  * TODO: 记录上一个值
  */
 export default class Serial {
@@ -35,7 +35,7 @@ export default class Serial {
 		this.cancelHooks = new Set();
 
 		this.leafs = new Set();
-		
+
 		this.target = Promise.resolve();
 	}
 
@@ -50,18 +50,18 @@ export default class Serial {
 						await Promise.race([
 							new Promise((_, $reject) => {
 								this.cancel = () => {
-									Array.from(this.cancelHooks).forEach(fn => fn());
+									Array.from(this.cancelHooks).forEach((fn) => fn());
 									isCancel = true;
 									$reject();
 
 									// 子集
-									Array.from(this.leafs).forEach(serial => {
+									Array.from(this.leafs).forEach((serial) => {
 										serial.cancel();
-										Array.from(serial.cancelHooks).forEach(fn => fn());
+										Array.from(serial.cancelHooks).forEach((fn) => fn());
 									});
 								};
 							}),
-							typeof original === 'function' ? original() : original
+							typeof original === 'function' ? original() : original,
 						]);
 					} catch (e) {
 						error = e;
@@ -72,16 +72,18 @@ export default class Serial {
 
 						if (!error && !isCancel) {
 							resolve();
-						} else if (error) { // 异常
-							reject(error); 
-						} else { // 中断
+						} else if (error) {
+							// 异常
+							reject(error);
+						} else {
+							// 中断
 							reject(Serial.CANCEL_TAG);
 						}
 					}
 				})();
 			});
 		});
-		
+
 		return this;
 	}
 
@@ -104,7 +106,7 @@ export default class Serial {
 	}
 
 	catch(onError) {
-		this.target = this.target.catch(e => {
+		this.target = this.target.catch((e) => {
 			// 中断 不执行onError
 			return e !== Serial.CANCEL_TAG && onError(e);
 		});

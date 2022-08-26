@@ -1,10 +1,7 @@
 import { EventStore } from '@wya/ps';
 
 const isGenerator = (func) => {
-	return (
-		typeof func.constructor === 'function' 
-		&& func.constructor.name === 'GeneratorFunction'
-	);
+	return typeof func.constructor === 'function' && func.constructor.name === 'GeneratorFunction';
 };
 
 const functionToIterator = (func) => {
@@ -12,7 +9,7 @@ const functionToIterator = (func) => {
 		next: () => {
 			let promise = func();
 			return promise && promise.then ? { value: promise } : { done: true };
-		}
+		},
 	};
 };
 
@@ -25,7 +22,7 @@ const promiseToIterator = (promise) => {
 			}
 			called = true;
 			return { value: promise };
-		}
+		},
 	};
 };
 
@@ -91,7 +88,7 @@ class Pool extends EventStore {
 		this._promise = new Promise((resolve, reject) => {
 			this._callbacks = {
 				reject,
-				resolve
+				resolve,
 			};
 			this._proceed();
 		});
@@ -123,13 +120,13 @@ class Pool extends EventStore {
 		if (!this._done) {
 			let result = { done: false };
 			while (
-				this._size < this._concurrency 
-				&&!(result = this._iterator.next()).done // eslint-disable-line
+				this._size < this._concurrency &&
+				!(result = this._iterator.next()).done // eslint-disable-line
 			) {
 				this._size++;
-				this._trackPromise((result).value);
+				this._trackPromise(result.value);
 			}
-			this._done = (result === null || !!result.done);
+			this._done = result === null || !!result.done;
 		}
 		if (this._done && this._size === 0) {
 			this._settle();
@@ -140,9 +137,11 @@ class Pool extends EventStore {
 		promise
 			.then((result) => {
 				this._onPooledPromiseFulfilled(promise, result);
-			}).catch((error) => {
+			})
+			.catch((error) => {
 				this._onPooledPromiseRejected(promise, error);
-			}).catch((error) => {
+			})
+			.catch((error) => {
 				this._settle(new Error('Promise processing failed: ' + error));
 			});
 	}
@@ -152,7 +151,7 @@ class Pool extends EventStore {
 		if (this.active()) {
 			this.emit('fulfilled', {
 				promise,
-				result
+				result,
 			});
 			this._proceed();
 		}
@@ -163,7 +162,7 @@ class Pool extends EventStore {
 		if (this.active()) {
 			this.emit('rejected', {
 				promise,
-				error
+				error,
 			});
 
 			// 允许继续执行, 这个时候要调用stop来停止程序
@@ -175,6 +174,5 @@ class Pool extends EventStore {
 		}
 	}
 }
-
 
 export default Pool;

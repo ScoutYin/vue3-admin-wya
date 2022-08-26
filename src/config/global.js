@@ -76,6 +76,7 @@ class GlobalManager extends EventStore {
 		Storage.remove(TOKEN_TAG);
 		window.dispatchEvent(new Event('@wya/logout'));
 		resetRouter();
+		this.router.replace('/login');
 	}
 
 	async createLoginAuth(config) {

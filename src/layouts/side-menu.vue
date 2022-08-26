@@ -84,6 +84,10 @@ const handleLogOut = () => {
 		onOk: async () => {
 			await Network.request({
 				url: '_COMMON_LOGIN_OUT_POST',
+				localData: {
+					status: 1,
+					data: {},
+				},
 			});
 			Global.clearLoginAuth();
 		},

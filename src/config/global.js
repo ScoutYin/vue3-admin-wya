@@ -2,6 +2,7 @@ import { Storage, Cookie } from '@wya/utils';
 import { EventStore } from '@wya/ps';
 import { TOKEN_TAG, BRANCH_TAG } from '../constants';
 import { Network } from './network';
+import { resetRouter, addDynamicRoutes } from '@/router';
 
 class GlobalManager extends EventStore {
 	constructor() {
@@ -63,9 +64,8 @@ class GlobalManager extends EventStore {
 	 * @returns {boolean} ~
 	 */
 	isLoggedIn() {
-		// const user = Storage.get(TOKEN_TAG);
-		// return !!user; // TODO: 对接好登录后可删除
-		return true;
+		const user = Storage.get(TOKEN_TAG);
+		return !!user;
 	}
 
 	/**
@@ -75,6 +75,7 @@ class GlobalManager extends EventStore {
 		this.user = {};
 		Storage.remove(TOKEN_TAG);
 		window.dispatchEvent(new Event('@wya/logout'));
+		resetRouter();
 	}
 
 	async createLoginAuth(config) {
@@ -82,6 +83,8 @@ class GlobalManager extends EventStore {
 
 		Storage.set(TOKEN_TAG, config);
 		window.dispatchEvent(new Event('@wya/login'));
+
+		addDynamicRoutes();
 
 		if (this.router) {
 			this.router.push('/');

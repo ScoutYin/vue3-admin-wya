@@ -46,6 +46,6 @@ export const addDynamicRoutes = () => {
 export const setupRouter = (app) => {
 	// TODO: 此时只是调试，实际应该在登录后获取到权限表再添加相应动态路由
 	addDynamicRoutes();
-	app.use(router);
 	setupRouterGuard(router);
+	app.use(router);
 };

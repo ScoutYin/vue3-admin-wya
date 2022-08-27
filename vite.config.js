@@ -40,7 +40,6 @@ export default (options) => {
 		},
 
 		build: {
-			outDir: 'dist',
 			assetsDir: 'assets',
 		},
 

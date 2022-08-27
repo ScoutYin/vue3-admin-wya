@@ -1,17 +1,4 @@
 /**
- * 用于判断一个路由的 path 是否处于激活状态
- * 路由/a/b/c激活的条件：
- * 	1. 相对路由为 /a/b/c （完全匹配）
- * 	2. 相对路由为 /a/b/c/d （子级）
- * @param {*} targetRoutePath 目标路由 path
- * @param {*} relativeRoutePath 相对路由 path
- * @returns boolean
- */
-export const isActiveRoute = (targetRoutePath, relativeRoutePath) => {
-	return new RegExp(`${targetRoutePath}(/{1}.*)?$`).test(relativeRoutePath);
-};
-
-/**
  * 解析得到给定路由 path 的祖先路由 path
  * 如：
  * 解析一级 getParentRoutePath('/shop/product/main/editor', 1) -> '/shop'
